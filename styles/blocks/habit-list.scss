@@ -1,0 +1,49 @@
+.habits {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.habit-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.habit-list__empty {
+  padding: 2.5rem 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.habit-list__empty-emoji {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+/* Скелетон на время загрузки данных из localStorage */
+.habit-card--skeleton {
+  height: 7rem;
+  border-left-color: var(--color-border);
+  box-shadow: none;
+  background: linear-gradient(
+    100deg,
+    var(--color-surface) 40%,
+    var(--color-surface-alt) 50%,
+    var(--color-surface) 60%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.4s ease infinite;
+}
+
+@keyframes skeleton-pulse {
+  from {
+    background-position: 120% 0;
+  }
+
+  to {
+    background-position: -80% 0;
+  }
+}

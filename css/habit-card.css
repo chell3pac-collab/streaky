@@ -1,0 +1,112 @@
+.habit-card {
+  --habit-color: var(--color-accent);
+  padding: 1rem;
+  background: var(--color-surface);
+  border-left: 4px solid var(--habit-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.habit-card--blue {
+  --habit-color: #4c8df6;
+}
+
+.habit-card--green {
+  --habit-color: #3aa76d;
+}
+
+.habit-card--orange {
+  --habit-color: #e8862f;
+}
+
+.habit-card--violet {
+  --habit-color: #8a63d2;
+}
+
+.habit-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.habit-card__emoji {
+  font-size: 1.4rem;
+}
+
+.habit-card__title {
+  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.habit-card__streak {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.habit-card__remove {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.habit-card__remove:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-danger);
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.week-grid__day {
+  display: grid;
+  gap: 0.1rem;
+  place-items: center;
+  width: 100%;
+  padding-block: 0.35rem;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.week-grid__day:hover:not(:disabled) {
+  border-color: var(--habit-color);
+}
+.week-grid__day:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.week-grid__day--done {
+  background: var(--habit-color);
+  border-color: var(--habit-color);
+  color: #ffffff;
+}
+
+.week-grid__weekday {
+  font-size: 0.62rem;
+  color: var(--color-muted);
+}
+
+.week-grid__day--done .week-grid__weekday {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.week-grid__date {
+  font-size: 0.8rem;
+  font-weight: 600;
+}

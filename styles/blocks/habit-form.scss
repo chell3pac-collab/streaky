@@ -1,0 +1,147 @@
+.habit-form {
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.habit-form__title {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.habit-form__fields {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.habit-form__field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.habit-form__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.habit-form__input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: inherit;
+  transition: border-color 0.15s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  &::placeholder {
+    color: var(--color-muted);
+  }
+}
+
+.habit-form__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.habit-form__option {
+  cursor: pointer;
+}
+
+.habit-form__option-face {
+  display: grid;
+  place-items: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 1.1rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background: var(--color-surface-alt);
+  }
+}
+
+/* Радио-инпут скрыт, состояние показываем на соседнем элементе */
+.habit-form__option-input:checked + .habit-form__option-face {
+  background: var(--color-surface-alt);
+  border-color: var(--color-accent);
+}
+
+.habit-form__option-input:focus-visible + .habit-form__option-face {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Цветные кружки выбора цвета */
+.habit-form__option-face--blue {
+  background: #4c8df6;
+  border-color: #4c8df6;
+}
+
+.habit-form__option-face--green {
+  background: #3aa76d;
+  border-color: #3aa76d;
+}
+
+.habit-form__option-face--orange {
+  background: #e8862f;
+  border-color: #e8862f;
+}
+
+.habit-form__option-face--violet {
+  background: #8a63d2;
+  border-color: #8a63d2;
+}
+
+.habit-form__option-input:checked + .habit-form__option-face--blue,
+.habit-form__option-input:checked + .habit-form__option-face--green,
+.habit-form__option-input:checked + .habit-form__option-face--orange,
+.habit-form__option-input:checked + .habit-form__option-face--violet {
+  box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 5px var(--color-accent);
+}
+
+.habit-form__submit {
+  padding: 0.65rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-weight: 700;
+  transition: filter 0.15s ease, transform 0.1s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.05);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@media (min-width: 640px) {
+  .habit-form__fields {
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: end;
+  }
+
+  .habit-form__submit {
+    justify-self: start;
+  }
+}
